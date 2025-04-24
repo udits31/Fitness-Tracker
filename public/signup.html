@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SIGNUP | FitTrack</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lato:300,400,700&display=swap">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="login-box">
+                <div class="logo">FitTrack</div>
+                <h2>Sign Up</h2>
+
+                <button class="social-btn">
+                    <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" />
+                    Sign up with Google
+                </button>
+                <button class="social-btn">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/mac-os.png" alt="Apple" />
+                    Sign up with Apple
+                </button>
+
+                <div class="divider">Or with email</div>
+
+                <div id="message" class="error-message"></div>
+
+                <form id="signup-form">
+                    <input type="text" name="name" placeholder="Full Name"  />
+                    <input type="text" name="email" placeholder="Email"  />
+                    <input type="password" name="password" placeholder="Password"  />
+                    <input type="number" name="weight" placeholder="Weight (kg)"  />
+                    <input type="number" name="height" placeholder="Height (cm)"  />
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="male" required>
+                                <span>Male</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="female">
+                                <span>Female</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="other">
+                                <span>Other</span>
+                            </label>
+                        </div>
+                    </div>
+                    <button class="login" type="submit">Sign Up</button>
+                </form>
+
+                <div class="extra">
+                    Already a user? <a href="login.html">Log In</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <footer>
+        <p>&copy; 2025 FitTrack. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/signup.js"></script>
+</body>
+</html>
+

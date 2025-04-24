@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Lato, sans-serif;
+    margin: 20px 30px;
+    background-color: #f5f7fa;
+    color: black;
+}
+
+h1, h2, h3 {
+    font-family: Montserrat, sans-serif;
+    color: #1a202c;
+}
+
+a {
+    text-decoration: none;
+    color: #4c90af;
+}
+
+.header-content{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+nav a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #000000;
+    font-weight:200;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+nav a:hover {
+    background: #4c90af;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4c90af;
+    margin-bottom: 10px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info h2 {
+    margin: 0 0 0.5rem;
+    color: #2c3e50;
+}
+
+.quote {
+    font-style: italic;
+    color: #666;
+    margin: 0;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 20px;
+}
+
+.stat {
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 2px solid #4c90af;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+}
+
+.stat i {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.stat i.fa-fire {
+    color: #ed8936;
+}
+
+.stat i.fa-dumbbell {
+    color: #4c90af;
+}
+
+.streak-stat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.streak-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.current-streak {
+    font-weight: 600;
+    color: #ed8936;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.longest-streak {
+    font-size: 0.75rem;
+    color: #718096;
+    white-space: nowrap;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: #1a202c;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.goal {
+    margin-bottom: 25px;
+}
+
+.goal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-weight {
+    width: 75%;
+    background: #4c90af;
+}
+
+.progress-cardio {
+    width: 60%;
+    background: #48bb78;
+}
+
+.progress-strength {
+    width: 45%;
+    background: #ed8936;
+}
+
+.calendar {
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: visible;
+    margin-bottom: 20px;
+    background: white;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    padding: 15px;
+}
+
+.month {
+    grid-column: 1 / -1;
+    padding: 12px;
+    background: #4c90af;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.weekdays {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+    background: none;
+    padding: 0;
+}
+
+.weekdays li {
+    text-align: center;
+    font-weight: 500;
+    color: #4a5568;
+    padding: 4px;
+    width: 100%;
+    list-style: none;
+}
+
+.day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #718096;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 8px;
+    min-height: 35px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.day:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.day.workout {
+    background: #4c90af;
+    color: white;
+    font-weight: 500;
+}
+
+.day.rest {
+    background: #ed8936;
+    color: white;
+    font-weight: 500;
+}
+
+.day.today {
+    border: 2px solid #4c90af;
+    font-weight: bold;
+    background: #ebf8ff;
+}
+
+.workout-history {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.workout-item {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.workout-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.workout-info h3 {
+    color: #1a202c;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.workout-date {
+    display: block;
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 10px;
+}
+
+.workout-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge.strength {
+    background: #fff5f0;
+    color: #ed8936;
+}
+
+.badge.cardio {
+    background: #ebf8ff;
+    color: #4c90af;
+}
+
+.badge.flexibility {
+    background: #f0fff4;
+    color: #48bb78;
+}
+
+footer a:hover{
+    font-weight: bolder;
+}
+
+.calendar .streak-info {
+    display: none;
+}
+
+.user-actions {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logout-btn {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #cc0000;
+} 

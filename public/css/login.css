@@ -1,0 +1,159 @@
+body {
+    margin: 20px 30px;
+    font-family: Lato, sans-serif;
+    background-color: #ffffff;
+    color: black;
+    background-image: url("../images/login-signup.jpg");
+    background-size: cover;        
+    background-position: center;   
+    background-repeat: no-repeat;  
+    background-attachment: fixed;  
+}
+
+h1, h2, h3 {
+    font-family: Montserrat, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #4c90af;
+}
+
+table {
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+td {
+    vertical-align: top;
+}
+
+.login-box {
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+.social-btn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social-btn:hover{
+    background-color: #e0e0e0;
+}
+
+.social-btn img {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #999;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button.login {
+    width: 100%;
+    background-color: #cde3fa;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button.login:hover{
+    background-color: #4c90af;
+    color: #ffffff;
+}
+
+.extra {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.extra a {
+    color: #2b73c9;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #777;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    margin: 10px 0;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    width: auto;  
+    margin: 0 8px 0 0; 
+    padding: 0;
+    cursor: pointer;
+}
+
+.radio-label span {
+    font-size: 14px;
+    color: #333;
+    display: inline-block;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 14px;
+}

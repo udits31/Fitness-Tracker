@@ -1,0 +1,247 @@
+body {
+    font-family: Lato, sans-serif;
+    margin: 20px 30px;
+    background-color: #f5f7fa;
+    color: #2d3748;
+  }
+  
+  h1{
+    text-align: center;
+  }
+
+  h1, h2, h3 {
+    font-family: Montserrat, sans-serif;
+    color: #1a202c;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #4c90af;
+  }
+  
+  .container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .library {
+    flex: 0.8;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .cart {
+    flex: 1.2;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .button-error-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+    min-height: 20px;
+  }
+  
+  .exercise {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+  }
+  
+  .exercise:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #4c90af;
+  }
+  
+  .exercise-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .exercise-name {
+    font-weight: 600;
+    color: #2d3748;
+  }
+  
+  .muscle-group {
+    font-size: 0.85em;
+    color: #4c90af;
+    background: #ebf8ff;
+    padding: 2px 8px;
+    border-radius: 12px;
+    display: inline-block;
+  }
+  
+  .equipment-tag {
+    font-size: 0.85em;
+    color: #805ad5;
+    background: #f3ebff;
+    padding: 2px 8px;
+    border-radius: 12px;
+    display: inline-block;
+  }
+  
+  .search-sort-container {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  #searchExercise {
+    flex: 2;
+    padding: 10px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+  }  
+  
+  #sortExercises, #filterMuscle {
+    flex: 0.8;
+    padding: 9px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    background-color: white;
+    cursor: pointer;
+    min-width: 120px;
+    transition: all 0.3s ease;
+  }
+  
+  #searchExercise:focus,
+  #sortExercises:focus,
+  #filterMuscle:focus {
+    outline: none;
+    border-color: #4c90af;
+    box-shadow: 0 0 0 3px rgba(76, 144, 175, 0.1);
+  }
+  
+  .btn {
+    padding: 10px 16px;
+    background-color: #4c90af;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .btn:hover {
+    background-color: #3a7a98;
+    transform: translateY(-1px);
+  }
+  
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .cart-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-item input {
+    width: 60px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    margin: 3px 10px;
+  }
+  
+  #saveSection {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  label {
+    display: block;
+    margin-top: 15px;
+    color: #4a5568;
+    font-weight: 500;
+  }
+  
+  input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #4c90af;
+    box-shadow: 0 0 0 3px rgba(76, 144, 175, 0.1);
+  }
+  
+  .header-content{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+nav a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #000000;
+    font-weight:200;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+nav a:hover {
+    background: #4c90af;
+    color: white;
+}
+  
+footer a:hover{
+    font-weight: bolder;
+}

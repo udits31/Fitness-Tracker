@@ -1,0 +1,134 @@
+/* General Body Styling (ensure consistency) */
+body {
+    font-family: Lato, sans-serif;
+    background-color: #f5f7fa;
+    color: black;
+    margin: 20px 30px;
+}
+
+h1, h2, h3 {
+    font-family: Montserrat, sans-serif;
+    color: #1a202c;
+}
+
+/* Header Styles */
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+    margin-bottom: 30px; 
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 200;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background: #4c90af;
+    color: white;
+}
+
+/* Routines Page */
+.routines-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+}
+
+.routine-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.routine-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.routine-card h3 {
+    font-size: 1.4rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+.routine-card .tags {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.routine-card .tag {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* Tag colors */
+.tag.beginner, .tag.intermediate, .tag.advanced {
+    background: #e6fffa;
+    color: #2c7a7b;
+}
+
+.tag.gain-muscle {
+    background: #f3ebff;
+    color: #805ad5;
+}
+
+.tag.gym {
+    background: #ebf8ff;
+    color: #4c90af;
+}
+
+.tag.routines-count {
+    background: #fff5e6;
+    color: #c05621;
+}
+
+.routine-card p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; 
+}
+
+.routine-card .view-button {
+    display: inline-block;
+    background-color: #4c90af;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: auto; 
+}
+
+.routine-card .view-button:hover {
+    background-color: #3a748d;
+} 

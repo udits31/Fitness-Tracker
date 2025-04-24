@@ -1,0 +1,91 @@
+body {
+    margin: 20px 30px;
+    font-family: Lato, sans-serif;
+    background-color: #f5f7fa;
+    color: #2d3748;
+}
+
+h1, h2, h3 {
+    font-family: Montserrat, sans-serif;
+    color: #1a202c;
+}
+h1{
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #4c90af;
+    transition: 0.3s;
+}
+
+.header-content{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+nav a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #000000;
+    font-weight:200;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+nav a:hover {
+    background: #4c90af;
+    color: white;
+}
+/* Container Styles */
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section Styles */
+section {
+    margin: 40px 0;
+}
+
+section p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #000000;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Mission, Vision, Team Sections */
+.mission, .vision, .team {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mission p, .vision p, .team p {
+    margin-top: 15px;
+}
+
+/* About Page */
+section h3 {
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+footer a:hover{
+    font-weight: bolder;
+}

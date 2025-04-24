@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadlift - Exercise Details</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lato:300,400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../css/exercise-detail.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h2>FitTrack</h2>
+            <a href="user.html"><i class="fas fa-user-circle" style="font-size: 30px;"></i></a>
+        </div>
+        <nav>
+            <a href="/home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="workouts.html">Create Workout</a>
+            <a href="routine-main.html">Routines</a>
+            <a href="exercises.html">Exercises</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="review-form.html">Reviews</a>
+        </nav>        
+    </header>
+
+    <div class="container">
+        <div class="exercise-detail">
+            <div class="exercise-info">
+                <h1 class="exercise-title">Deadlift</h1>
+                
+                <div class="tags">
+                    <span class="tag muscle">Back</span>
+                    <span class="tag muscle">Legs</span>
+                    <span class="tag equipment">Barbell</span>
+                </div>
+
+                <div class="info-section">
+                    <h2>Overview</h2>
+                    <p>The deadlift is a fundamental compound exercise that targets multiple muscle groups simultaneously. It primarily works the lower back, hamstrings, and glutes, while also engaging the core, traps, and forearms. This exercise is essential for building overall strength and improving posture.</p>
+                </div>
+
+                <div class="info-section">
+                    <h2>Steps</h2>
+                    <ol class="exercise-steps">
+                        <li>Stand with feet hip-width apart, with the barbell over your mid-foot.</li>
+                        <li>Bend at your hips and knees, keeping your back straight, and grip the bar just outside your legs.</li>
+                        <li>Position your shoulders slightly in front of the bar, with your arms straight.</li>
+                        <li>Take a deep breath, brace your core, and lift the bar by driving through your legs.</li>
+                        <li>Keep the bar close to your body as you lift, extending your hips and knees simultaneously.</li>
+                        <li>Stand tall at the top, with shoulders back and hips fully extended.</li>
+                        <li>Return the weight to the ground in a controlled manner, hinging at the hips first.</li>
+                    </ol>
+                </div>
+
+                <div class="info-section personal-records-section">
+                    <h2>Personal Records</h2>
+                    <div class="content"> 
+                        <div id="personal-records-list">
+                            <p>Loading records...</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise-image-container">
+                <img src="../images/deadlift.webp" alt="Deadlift" class="exercise-image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const recordsList = document.getElementById('personal-records-list');
+            const exerciseName = "Deadlift";
+            let exerciseId = 9;
+            let userId = null;
+
+            try {
+                //Get current user ID
+                const userResponse = await fetch('/api/auth/current-user');
+                if (!userResponse.ok) throw new Error('Not logged in');
+                const userData = await userResponse.json();
+                if (!userData.success || !userData.user) throw new Error('User session not found');
+                userId = userData.user.id;
+
+                //Fetch Personal Records
+                const prResponse = await fetch(`/api/workouts/prs/${userId}/${exerciseId}`);
+                if (!prResponse.ok) throw new Error('Failed to fetch PRs');
+                const prData = await prResponse.json();
+
+                //Display Personal Records
+                if (prData.success && prData.personalRecords && prData.personalRecords.length > 0) {
+                    const recordsHTML = prData.personalRecords.map(record => `
+                        <div class="record-item">
+                            <span class="record-value">${record.value} ${record.units}</span>
+                            <span class="record-date">${new Date(record.date_achieved).toLocaleDateString()}</span>
+                        </div>
+                    `).join('');
+                    recordsList.innerHTML = recordsHTML;
+                } else {
+                    recordsList.innerHTML = '<p>No personal records yet. Start tracking your progress!</p>';
+                }
+            } catch (error) {
+                console.error('Error loading personal records:', error);
+                recordsList.innerHTML = '<p>Error loading personal records. Please try again later.</p>';
+            }
+        });
+    </script>
+</body>
+</html> 

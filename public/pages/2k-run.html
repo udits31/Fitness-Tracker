@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2K Run - Exercise Details</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lato:300,400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/exercise-detail.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h2>FitTrack</h2>
+            <a href="user.html"><i class="fas fa-user-circle" style="font-size: 30px;"></i></a>
+        </div>
+        <nav>
+            <a href="/home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="workouts.html">Create Workout</a>
+            <a href="routine-main.html">Routines</a>
+            <a href="exercises.html">Exercises</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="review-form.html">Reviews</a>
+        </nav>        
+    </header>
+
+    <div class="container">
+        <div class="exercise-detail">
+            <div class="exercise-info">
+                <h1 class="exercise-title">2K Run</h1>
+                
+                <div class="tags">
+                    <span class="tag muscle">Cardio</span>
+                    <span class="tag muscle">Legs</span>
+                    <span class="tag equipment">None</span>
+                </div>
+
+                <div class="info-section">
+                    <h2>Overview</h2>
+                    <p>The 2K run is a cardiovascular exercise that tests your endurance and stamina. It's a great way to improve your aerobic capacity, burn calories, and strengthen your leg muscles. This distance is commonly used in fitness tests and military training.</p>
+                </div>
+
+                <div class="info-section">
+                    <h2>Steps</h2>
+                    <ol class="exercise-steps">
+                        <li>Warm up properly with light jogging and dynamic stretches.</li>
+                        <li>Start at a comfortable pace that you can maintain.</li>
+                        <li>Maintain good posture with your head up and shoulders relaxed.</li>
+                        <li>Land midfoot with each step, not on your heels.</li>
+                        <li>Keep your arms bent at approximately 90 degrees and swing them naturally.</li>
+                        <li>Breathe rhythmically, taking deep breaths from your diaphragm.</li>
+                        <li>Maintain your pace throughout the run, or use a negative split strategy.</li>
+                        <li>Cool down with a light jog and stretching after completing the distance.</li>
+                    </ol>
+                </div>
+
+                <div class="info-section personal-records-section">
+                    <h2>Personal Records</h2>
+                    <div class="content"> 
+                        <div id="personal-records-list">
+                            <p>Loading records...</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise-image-container">
+                <img src="../images/running.webp" alt="2K Run" class="exercise-image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const recordsList = document.getElementById('personal-records-list');
+            const exerciseName = "2K Run"; 
+            let exerciseId = 16;
+            let userId = null;
+
+            try {
+                //Get current user ID
+                const userResponse = await fetch('/api/auth/current-user');
+                if (!userResponse.ok) throw new Error('Not logged in');
+                const userData = await userResponse.json();
+                if (!userData.success || !userData.user) throw new Error('User session not found');
+                userId = userData.user.id;
+
+                //Fetch Personal Records
+                const prResponse = await fetch(`/api/workouts/prs/${userId}/${exerciseId}`);
+                if (!prResponse.ok) throw new Error('Failed to fetch PRs');
+                const prData = await prResponse.json();
+
+                //Display Personal Records
+                if (prData.success && prData.personalRecords && prData.personalRecords.length > 0) {
+                    const recordsHTML = prData.personalRecords.map(record => `
+                        <div class="record-item">
+                            <span class="record-value">${record.value} ${record.units}</span>
+                            <span class="record-date">${new Date(record.date_achieved).toLocaleDateString()}</span>
+                        </div>
+                    `).join('');
+                    recordsList.innerHTML = recordsHTML;
+                } else {
+                    recordsList.innerHTML = '<p>No personal records yet. Start tracking your progress!</p>';
+                }
+            } catch (error) {
+                console.error('Error loading personal records:', error);
+                recordsList.innerHTML = '<p>Error loading personal records. Please try again later.</p>';
+            }
+        });
+    </script>
+</body>
+</html> 

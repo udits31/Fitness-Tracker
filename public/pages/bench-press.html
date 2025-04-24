@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bench Press - Exercise Details</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lato:300,400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/exercise-detail.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h2>FitTrack</h2>
+            <a href="user.html"><i class="fas fa-user-circle" style="font-size: 30px;"></i></a>
+        </div>
+        <nav>
+            <a href="/home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="workouts.html">Create Workout</a>
+            <a href="routine-main.html">Routines</a>
+            <a href="exercises.html">Exercises</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="review-form.html">Reviews</a>
+        </nav>        
+    </header>
+
+    <div class="container">
+        <div class="exercise-detail">
+            <div class="exercise-info">
+                <h1 class="exercise-title">Bench Press</h1>
+                
+                <div class="tags">
+                    <span class="tag muscle">Chest</span>
+                    <span class="tag equipment">Barbell</span>
+                </div>
+
+                <div class="info-section">
+                    <h2>Overview</h2>
+                    <p>The bench press is a compound exercise that primarily targets the chest muscles (pectoralis major), with secondary emphasis on the front deltoids and triceps. It's one of the most popular exercises for building upper body strength and muscle mass.</p>
+                </div>
+
+                <div class="info-section">
+                    <h2>Steps</h2>
+                    <ol class="exercise-steps">
+                        <li>Lie flat on the bench with your feet firmly planted on the ground.</li>
+                        <li>Grip the barbell slightly wider than shoulder-width apart.</li>
+                        <li>Unrack the barbell and hold it directly above your chest with arms fully extended.</li>
+                        <li>Lower the barbell slowly to your mid-chest, keeping your elbows at roughly a 45-degree angle to your body.</li>
+                        <li>Touch the barbell to your chest lightly without bouncing.</li>
+                        <li>Press the barbell back up to the starting position, focusing on pushing through your chest muscles.</li>
+                    </ol>
+                </div>
+
+                <div class="info-section personal-records-section">
+                    <h2>Personal Records</h2>
+                    <div class="content"> 
+                        <div id="personal-records-list">
+                            <p>Loading records...</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise-image-container">
+                <img src="../images/bench-press.webp" alt="Bench Press" class="exercise-image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const recordsList = document.getElementById('personal-records-list');
+            const exerciseName = "Bench Press"; 
+            let exerciseId = 1; 
+            let userId = null;
+
+            try {
+                //Get current user ID
+                const userResponse = await fetch('/api/auth/current-user');
+                if (!userResponse.ok) throw new Error('Not logged in');
+                const userData = await userResponse.json();
+                if (!userData.success || !userData.user) throw new Error('User session not found');
+                userId = userData.user.id;
+
+                //Fetch Personal Records
+                const prResponse = await fetch(`/api/workouts/prs/${userId}/${exerciseId}`);
+                if (!prResponse.ok) throw new Error('Failed to fetch PRs');
+                const prData = await prResponse.json();
+
+                //Display Personal Records
+                if (prData.success && prData.personalRecords && prData.personalRecords.length > 0) {
+                    const recordsHTML = prData.personalRecords.map(record => `
+                        <div class="record-item">
+                            <span class="record-value">${record.value} ${record.units}</span>
+                            <span class="record-date">${new Date(record.date_achieved).toLocaleDateString()}</span>
+                        </div>
+                    `).join('');
+                    recordsList.innerHTML = recordsHTML;
+                } else {
+                    recordsList.innerHTML = '<p>No personal records yet. Start tracking your progress!</p>';
+                }
+            } catch (error) {
+                console.error('Error loading personal records:', error);
+                recordsList.innerHTML = '<p>Error loading personal records. Please try again later.</p>';
+            }
+        });
+    </script>
+</body>
+</html> 
